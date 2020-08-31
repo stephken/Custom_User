@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ welcome }}</h1>
+    {% if request.user.is_authenticated %}
+        <h2>Hello, {{ request.user.username }}</h2>
+        <h2>The Display Name is, {{ request.user.display_name }}</h2>
+        <h2>{{ AUTH_USER_MODEL }}</h2>
+        <a href="logout/"><button>Log Out</button></a>
+    {% else %}
+    <h2>Unidentified User, login or signup please!</h2>
+    <p>
+        <a href="login/"><button>Log In</button></a>
+        <a href="signup/"><button>Signup</button></a>
+    </p>
+{% endif %} {% endblock %}
